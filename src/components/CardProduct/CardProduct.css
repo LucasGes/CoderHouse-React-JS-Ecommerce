@@ -1,0 +1,6 @@
+.img{
+
+    max-width: 100%; /* Evita que la imagen sea más grande que su contenedor */
+    display: block; /* Elimina el espacio adicional por debajo de la imagen */
+    margin: 0 auto; 
+}

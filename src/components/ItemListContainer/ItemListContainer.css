@@ -1,4 +1,8 @@
 .ItemListContainer {
-background-color: rgb(199, 214, 214);
-text-align: center;
+  background: linear-gradient(to bottom, #ffffff, #a6a6a6);
+
+  text-align: center;
+  margin-top: auto;
+  flex: 1;
+
 }
