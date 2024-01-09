@@ -6,7 +6,14 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import "./CardProduct.css"
 
+
+
+// API: https://fakestoreapi.com/docs 
+
 const CardProduct = ({product}) => {
+
+  const { id, title, price, category, image} = product;
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -29,17 +36,12 @@ const CardProduct = ({product}) => {
            CATEGORIA: {product.category}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-           {product.description}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
            PRECIO: $ {product.price}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
-          Ver Producto
-        </Button>
+       
       </CardActions>
     </Card>
   );

@@ -4,8 +4,6 @@ const CartWidget = () => {
     <div style={{display: "flex"}}>
       <ShoppingCartIcon/>
       <span>12</span>
-
-      
     </div>
   )
 }
