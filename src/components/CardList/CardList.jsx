@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import CardProduct from "../CardProduct/CardProduct";
-import "./CardList.css"
 import { Link } from "react-router-dom";
-import Spinner from "../Spinner/Spinner.jsx";
 
+import Spinner from "../Spinner/Spinner.jsx";
+import CardProduct from "../CardProduct/CardProduct";
+
+import "./CardList.css"
  
 
  const CardList = () => {

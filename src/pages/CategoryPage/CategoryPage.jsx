@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Link } from "react-router-dom";
+
 import CardProduct from '../../components/CardProduct/CardProduct';
 import Spinner from '../../components/Spinner/Spinner';
-import { Link } from "react-router-dom";
 
 const CategoryPage = () => {
   let { categoryId } = useParams();

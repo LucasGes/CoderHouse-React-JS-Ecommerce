@@ -5,26 +5,30 @@ import { Link } from "react-router-dom";
 const Footer = (props) => {
   return (
 
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
+<div className="container">
+  <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p className="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
 
-    <img src={img} alt="Logo" style={{ maxWidth: '100px', maxHeight: '100px', marginRight: 'center'}} />
+    <Link to="/"><img src={img} alt="Logo" style={{ maxWidth: '150px', maxHeight: '40px', marginRight: '5px'}} /></Link>
 
-    <ul class="nav col-md-4 justify-content-end">
-      <Link class="nav-item" to="/"><a class="nav-link px-2 text-body-secondary" >Home</a></Link>
-      <Link class="nav-item" to="/ofertas"><a class="nav-link px-2 text-body-secondary" >Ofertas</a></Link>
-      <li className="dropdown">
-          <a className="nav-link dropdown-toggle"     role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <ul className="nav col-md-4 justify-content-end">
+          <Link to="/" className="nav-item">
+        <span className="nav-link active" aria-current="page">Home</span>
+          </Link>
+          <li className="nav-item dropdown">
+          <span className="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Rubros
-          </a>
+          </span>
           <ul className="dropdown-menu">
-            <Link to="/ropa"><a className="dropdown-item"    >Ropa</a></Link>
-            <Link to="/accesorios"><a className="dropdown-item"    >Accesorios</a></Link>
-            <Link to="/tecnologia"><a className="dropdown-item"    >Texnología</a></Link>
+            <Link to="/CategoryPage/women's clothing" className="dropdown-item">Ropa Dama</Link>
+            <Link to="/CategoryPage/men's clothing" className="dropdown-item">Ropa Hombre</Link>
+            <Link to="/CategoryPage/jewelery" className="dropdown-item">Accesorios</Link>
+            <Link to="/CategoryPage/electronics" className="dropdown-item">Tecnología</Link>
           </ul>
         </li>
-      <Link class="nav-item" to="/about"><a     class="nav-link px-2 text-body-secondary">About</a></Link>
+      <Link className="nav-item" to="/about">
+        <span     className="nav-link px-2 text-body-secondary">About</span>
+        </Link>
     </ul>
   </footer>
 </div>
