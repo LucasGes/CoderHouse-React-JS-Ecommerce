@@ -1,0 +1,22 @@
+.Spinner {
+display: flex;
+justify-content: center;
+margin: 50px;
+
+}
+
+.grid-container{
+width: 90%;
+display: flex;
+justify-content: center;
+margin: 30px;
+
+}
+
+
+.cardDetail {
+color: black;
+display: flex;
+align-items: center;
+
+}

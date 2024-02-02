@@ -1,49 +1,50 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import {useParams} from "react-router-dom";
 
-import CardProduct from '../../components/CardProduct/CardProduct';
-import Spinner from '../../components/Spinner/Spinner';
+import Spinner from './../../components/Spinner/Spinner';
+import CardProduct from "../../components/CardProduct/CardProduct.jsx";
+
+import { collection, query, getDocs, doc, where} from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig.js";
+
+
 
 const CategoryPage = () => {
-  let { categoryId } = useParams();
+
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-console.log(categoryId);
-
-let filteredProduct = products.filter((product) => {
-  return product.category ===categoryId; 
-})
-
+  const {Categoria} = useParams();
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-      .then(res => res.json())
-      .then(json => {
-        setProducts(json);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching products:', error);
-        setIsLoading(false);
+    setIsLoading(true);
+
+    const getProducts = async () => {
+      const q = query(collection(db, "Productos"), where ("Categoria", "==", Categoria)  );
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
       });
-  }, []);
+      setProducts(docs);
+      setIsLoading(false)
+    };
+    getProducts();
+  }, [Categoria]);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', margin: 20,  }}>
+    
+    <div className="grid-container">
       {isLoading ? (
-        <Spinner />
+        <Spinner/>
       ) : (
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-        {filteredProduct.map(product => (
-          <div key={product.id} style={{ margin: 10, width: '30%' }}>
-            <Link to={`/detalle/${product.id}`}>
+        products.map((product) => (
+          <Link to={`/detalle/${product.id}`} key={product.id} style={{textDecoration: "none"}}>
             <CardProduct product={product} />
-            </Link>
-          </div>
-          ))}
-        </div>
+          </Link>
+        ))
       )}
     </div>
   );

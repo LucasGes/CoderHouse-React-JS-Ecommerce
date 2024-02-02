@@ -1,6 +1,8 @@
-import "./Footer.css"
-import img from "../../assets/Sin Fondo.png"
 import { Link } from "react-router-dom";
+
+import img from "../../assets/Sin Fondo.png"
+
+import "./Footer.css"
 
 const Footer = (props) => {
   return (
@@ -12,7 +14,7 @@ const Footer = (props) => {
     <Link to="/"><img src={img} alt="Logo" style={{ maxWidth: '150px', maxHeight: '40px', marginRight: '5px'}} /></Link>
 
     <ul className="nav col-md-4 justify-content-end">
-          <Link to="/" className="nav-item">
+          <Link to="/" className="nav-item" style={{textDecoration: "none"}}>
         <span className="nav-link active" aria-current="page">Home</span>
           </Link>
           <li className="nav-item dropdown">
@@ -20,13 +22,11 @@ const Footer = (props) => {
             Rubros
           </span>
           <ul className="dropdown-menu">
-            <Link to="/CategoryPage/women's clothing" className="dropdown-item">Ropa Dama</Link>
-            <Link to="/CategoryPage/men's clothing" className="dropdown-item">Ropa Hombre</Link>
-            <Link to="/CategoryPage/jewelery" className="dropdown-item">Accesorios</Link>
-            <Link to="/CategoryPage/electronics" className="dropdown-item">Tecnología</Link>
+            <Link to="/CategoryPage/Regaleria" className="dropdown-item">Regalería</Link>
+            <Link to="/CategoryPage/Jugueteria" className="dropdown-item">Juguetería</Link>
           </ul>
         </li>
-      <Link className="nav-item" to="/about">
+      <Link className="nav-item" to="/about" style={{textDecoration: "none"}}>
         <span     className="nav-link px-2 text-body-secondary">About</span>
         </Link>
     </ul>

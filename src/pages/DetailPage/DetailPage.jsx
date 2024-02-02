@@ -1,26 +1,60 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import {useParams} from "react-router-dom";
 
-import CardProduct from '../../components/CardProduct/CardProduct';
-import Spinner from '../../components/Spinner/Spinner';
+
+import Spinner from './../../components/Spinner/Spinner';
+import CardProduct from './../../components/CardProduct/CardProduct';
+
+import { collection, query, getDocs, doc, where, documentId } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig.js";
+
+import "./DetailPage.css"
 
 
 const DetailPage = () => {
-  let { id } = useParams();
-  const [product, setProduct] = useState({});
+
+  const [product, setProduct] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {id} = useParams();
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then(res => res.json())
-      .then(json => setProduct(json))
-      .catch(error => console.error('Error fetching product data:', error));
+    setIsLoading(true);
+
+    const getProduct = async () => {
+      const q = query(collection(db, "Productos"), where (documentId(), "==", id)  );
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setProduct(docs);
+      setIsLoading(false)
+    };
+    getProduct();
   }, [id]);
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', margin: 20 }}>
-      {product.id ? <CardProduct product={product} /> :  <Spinner/>}
+    
+    <div className="grid-container">
+      {isLoading ? (
+        <Spinner/>
+      ) : (
+        product.map((product) => (
+          <div  key={product.id} className="cardDetail">
+          
+          <CardProduct product={product} />
+          <p style={{width: "400px", margin: "80px", lineHeight: "2"} }> {product.Detalle} </p>  
+          </div>
+          ))
+       
+        )}
+        
     </div>
   );
 };
 
 export default DetailPage;
+

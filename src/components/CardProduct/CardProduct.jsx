@@ -3,47 +3,43 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+import { CardActions } from '@mui/material';
+
 import "./CardProduct.css"
-
-
-
-// API: https://fakestoreapi.com/docs 
 
 const CardProduct = ({product}) => {
 
-  const { id, title, price, category, image} = product;
+  const { Nombre, Precio, Categoria, Img, Detalle, Stock} = product;
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+     
       <div className="img" >
-        <CardMedia
+        <CardMedia className='img'
           component="img"
-          height="140"
-          image={product.image}
-          style={{ width: '100%', height: 'auto' }}
-
-        />
+          image={product.Img}
+                  />
          </div>
         <CardContent>
           
           <Typography gutterBottom variant="h5" component="div">
-          {product.title}
+          {product.Nombre}
           </Typography>
          
           <Typography variant="body2" color="text.secondary">
-           CATEGORIA: {product.category}
+           CATEGORIA: {product.Categoria}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-           PRECIO: $ {product.price}
+           PRECIO: $ {product.Precio}
           </Typography>
+     
         </CardContent>
-      </CardActionArea>
+      
       <CardActions>
        
       </CardActions>
     </Card>
+       
   );
 }
 
