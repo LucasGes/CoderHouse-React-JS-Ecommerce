@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget.jsx";
-import { CartContext } from "../../context/CartContext.jsx";
-import { useContext } from "react";
 
 import img from "../../assets/Sin Fondo.png";
 
 const NavBar = () => {
-  const { cart } = useContext(CartContext);
 
   return (
     <div>
