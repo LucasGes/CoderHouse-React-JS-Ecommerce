@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Button } from "@mui/material";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ErrorPage = () => {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    return (
-
-    <div style={{textAlign: "center"}}>
+  return (
+    <div style={{ textAlign: "center", margin: "30px" }}>
       <h1> ERROR PAGE</h1>
-        <button onClick={()=> navigate("/")}> Volver a Home </button>
-
+      <Button onClick={() => navigate("/")}> Volver a Home </Button>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

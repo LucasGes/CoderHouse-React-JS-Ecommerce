@@ -5,17 +5,17 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 import { CartContext } from "../../context/CartContext";
 
-const CardWidget = () => {
-  const { cart } = useContext(CartContext);
+const CartWidget = () => {
+  const { itemsInCart } = useContext(CartContext);
 
   return (
     <div style={{ display: "flex" }}>
-      <Link to="./shop">
+      <Link to="./shop" style={{textDecoration: "none"}}>
         <ShoppingCartIcon />
-        <span style={{ marginLeft: "5px" }}>{cart.length}</span>
+        <span style={{ marginLeft: "5px" }}>{itemsInCart()}</span>
       </Link>
     </div>
   );
 };
 
-export default CardWidget;
+export default CartWidget;

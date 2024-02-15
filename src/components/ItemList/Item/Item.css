@@ -1,0 +1,38 @@
+
+    .img {
+      height: 300px;
+      width: 300px;
+     
+    
+      img {
+        object-fit: contain;
+    
+      }
+    }
+        .LinkCarro:hover{
+          background:#fff;
+          color:#4800bd;
+          
+                }
+        .LinkCarro:before,button:after{
+          content:'';
+          position:absolute;
+          top:0;
+          right:0;
+          height:2px;
+          width:0;
+          background: #4800bd;
+          transition:400ms ease all;
+        }
+        .LinkCarro:after{
+          right:inherit;
+          top:inherit;
+          left:0;
+          bottom:0;
+        }
+        .LinkCarro:hover:before,button:hover:after{
+          width:100%;
+          transition:800ms ease all;
+                }
+  
+  

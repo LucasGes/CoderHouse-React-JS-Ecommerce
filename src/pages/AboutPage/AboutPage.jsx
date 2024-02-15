@@ -3,7 +3,7 @@ import './AboutPage.css';
 
 const AboutPage = () => {
   return (
-    <div className="container animate-in-up">
+    <div className="container animate-in-up" style={{margin: "30px"}}>
       <h1 style={{textAlign: "center", lineHeight: "2", color: "#0d47a1"}}>Acerca de LA TIENDA ONLINE</h1>
       <p>
         ¡Bienvenido a LA TIENDA ONLINE! Somos más que una tienda; somos un destino donde la diversión, la creatividad y la tecnología se encuentran. En LA TIENDA ONLINE, nos apasiona brindar a nuestros clientes una experiencia de compra única, ofreciendo una cuidada selección de juguetes, artículos de librería y productos de computación.

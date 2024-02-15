@@ -5,11 +5,11 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActions } from '@mui/material';
 
-import "./CardProduct.css"
+import "./Item.css"
 
-const CardProduct = ({product}) => {
+const Item = ({product}) => {
 
-  const { Nombre, Precio, Categoria, Img, Detalle, Stock} = product;
+  const { Nombre, Precio, Categoria, Img, Detalle, Stock, Cantidad} = product;
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -43,4 +43,4 @@ const CardProduct = ({product}) => {
   );
 }
 
-export default CardProduct;
+export default Item;
