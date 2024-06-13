@@ -9,6 +9,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const initialState = {
     nombre: "",
@@ -23,6 +24,7 @@ const Checkout = () => {
     const [showSuccess, setShowSuccess] = useState(false); 
     const [userId, setUserId] = useState("");  
     const {clearCart} = useContext(CartContext);
+    const [formDisabled, setFormDisabled] = useState(false);
 
     const onChange = (e) => {
         const { value, name } = e.target;
@@ -53,6 +55,7 @@ const Checkout = () => {
           setValues(initialState);
           setShowError(false); 
           setShowSuccess(true);
+          setFormDisabled(true); 
     
         } catch (error) {
           console.error("Error adding document: ", error);
@@ -84,7 +87,7 @@ const Checkout = () => {
 
       <div className="FormShop">
 
-      <p style={{ marginTop: "10px", textAlign: "center", color: "#0d47a1"}}> Ingrese los datos para finalizar</p>
+      <p style={{ marginTop: "10px", textAlign: "center", color: "#0d47a1"}}> COMPLETE EL FORMULARIO</p>
 
         <TextField
           id="standard-input"
@@ -93,6 +96,7 @@ const Checkout = () => {
           name="nombre"
           value={values.nombre}
           onChange={onChange}
+          disabled={formDisabled}
         />
         <TextField
           id="standard-input"
@@ -101,6 +105,7 @@ const Checkout = () => {
           name="apellido"
           value={values.apellido}
           onChange={onChange}
+          disabled={formDisabled}
         />
         <TextField
           id="standard-input"
@@ -109,10 +114,12 @@ const Checkout = () => {
           name="ciudad"
           value={values.ciudad}
           onChange={onChange}
+          disabled={formDisabled}
         />
 
-        <Button type="submit" className="LinkDetalle" onClick={clearCart}>
+        <Button type="submit" onClick={clearCart} disabled={formDisabled}>
           Comprar
+          
         </Button>
 
         {showError && (
@@ -128,10 +135,14 @@ const Checkout = () => {
 {showSuccess && (
       <Alert onClose={handleCloseSuccess} severity="success" style={{textAlign: "center", width: "300px"}}>
        Gracias por su compra!! <br />
-       Su ID de transacción es: {userId}
+       Su ID de transacción es: {userId}<br />
+       <Link to="/"  className="LinkDetalle">
+        VOLVER AL INICIO
+        </Link>
       </Alert>
+      
     )}
-      </div>
+         </div>
     </Box>
     </div>
   )
