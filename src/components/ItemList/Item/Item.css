@@ -1,14 +1,19 @@
 
-    .img {
-      height: 300px;
-      width: 300px;
-     
-    
-      img {
-        object-fit: contain;
-    
-      }
-    }
+/* Contenedor de la imagen */
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 300px; /* Asegura que el contenedor no se desborde */
+  height: 700px; /* La altura será automática para mantener la proporción */
+ img {
+  object-fit: contain; /* Mantén la proporción de la imagen */
+  width: 100%; /* La imagen ocupará todo el ancho disponible del contenedor */
+  height: auto; /* La altura será proporcional */
+  max-width: 100%; /* No permitirá que la imagen se haga más grande que el contenedor */
+  max-height: 100%; /* Limita la altur a de la imagen al 100% del contenedor */
+}}
+
         .LinkCarro:hover{
           background:#fff;
           color:#4800bd;

@@ -1,0 +1,14 @@
+.container-fluid{
+    background-color: whitesmoke;
+    border: 1px solid black;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+}
+
+.img{
+       max-Width: 50px;
+        max-Height: 40px;
+        margin-Right: 5px;
+}

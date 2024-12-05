@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget.jsx";
+import "./NavBar.css" 
 
 import img from "../../assets/Sin Fondo.png";
 
@@ -8,20 +9,13 @@ const NavBar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div
-          className="container-fluid"
-          style={{ backgroundColor: "white", border: `1px solid black`, position: "fixed", zIndex: "1000", top: "0",width: "100%"        }}
-        >
+        <div className="container-fluid">
           <Link to="/">
             <img
+              className="img"
               src={img}
-              alt="Logo"
-              style={{
-                maxWidth: "150px",
-                maxHeight: "40px",
-                marginRight: "5px",
-              }}
-            />
+              alt="Logo"        
+              />
           </Link>
           <Link to="/" style={{ textDecoration: "none" }}>
             <span className="navbar-brand">La Tienda Online</span>

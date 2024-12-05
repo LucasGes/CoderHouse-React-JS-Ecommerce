@@ -7,7 +7,22 @@ export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([])
 
     const addToCart = (product) => {
-        setCart([...cart, product])
+
+
+        setCart((cart) => {
+            const existingProduct = cart.find((item) => item.id === product.id);
+        
+            if (existingProduct) {
+              
+              return cart.map((item) =>
+                item.id === product.id
+                  ? { ...item, cantidad: item.cantidad + product.cantidad }
+                  : item
+              );
+            }
+            return ([...cart, product]);
+          });
+
     }
 
        
@@ -26,8 +41,6 @@ export const CartProvider = ({ children }) => {
     const clearCart = () => {
         setCart([])
     }
-
-    
 
     return (
         <CartContext.Provider value={{

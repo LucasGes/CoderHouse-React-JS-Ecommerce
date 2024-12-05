@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { collection, query, getDocs, where } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
-import Spinner from '../../Spinner/Spinner';
-import ItemList from '../ItemList/ItemList';
+import Spinner from "../../Spinner/Spinner";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -12,18 +12,17 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const productosRef = collection(db, 'Productos');
+    const productosRef = collection(db, "Productos");
     const docsRef = Categoria
-      ? query(productosRef, where('Categoria', '==', Categoria))
+      ? query(productosRef, where("Categoria", "==", Categoria))
       : productosRef;
 
     getDocs(docsRef)
       .then((querySnapshot) => {
-        const docs = querySnapshot.docs.map(doc => ({
+        const docs = querySnapshot.docs.map((doc) => ({
           ...doc.data(),
-          id: doc.id
+          id: doc.id,
         }));
-        console.log(docs);
         setProducts(docs);
       })
       .finally(() => setIsLoading(false));
@@ -31,11 +30,7 @@ const ItemListContainer = () => {
 
   return (
     <div className="grid-container">
-      {isLoading ? (
-        <Spinner/>
-      ) : (
-        <ItemList products={products} />
-      )}
+      {isLoading ? <Spinner /> : <ItemList products={products} />}
     </div>
   );
 };
