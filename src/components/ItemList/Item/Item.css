@@ -1,43 +1,55 @@
-
-/* Contenedor de la imagen */
 .img {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 300px; /* Asegura que el contenedor no se desborde */
-  height: 700px; /* La altura será automática para mantener la proporción */
- img {
-  object-fit: contain; /* Mantén la proporción de la imagen */
-  width: 100%; /* La imagen ocupará todo el ancho disponible del contenedor */
-  height: auto; /* La altura será proporcional */
-  max-width: 100%; /* No permitirá que la imagen se haga más grande que el contenedor */
-  max-height: 100%; /* Limita la altur a de la imagen al 100% del contenedor */
-}}
+  width: 100%; /* O usa un tamaño fijo si prefieres */
+  height: auto; /* Deja que la altura se ajuste según el contenido */
+  max-width: 300px; /* Ajusta el máximo permitido para no desbordar */
+  max-height: 300px;
+}
 
-        .LinkCarro:hover{
-          background:#fff;
-          color:#4800bd;
-          
-                }
-        .LinkCarro:before,button:after{
-          content:'';
-          position:absolute;
-          top:0;
-          right:0;
-          height:2px;
-          width:0;
-          background: #4800bd;
-          transition:400ms ease all;
-        }
-        .LinkCarro:after{
-          right:inherit;
-          top:inherit;
-          left:0;
-          bottom:0;
-        }
-        .LinkCarro:hover:before,button:hover:after{
-          width:100%;
-          transition:800ms ease all;
-                }
-  
-  
+.img img {
+  object-fit: contain; /* Ajusta la imagen sin distorsionarla */
+  width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+  height: 100%; /* La imagen ocupa toda la altura del contenedor */
+  max-width: 300px; /* Define un máximo para controlar el tamaño */
+  max-height: 300px; /* Define un máximo para controlar el tamaño */
+}
+
+.Card{
+width: 350px;
+height: 350px;
+align-content: center;
+}
+
+
+.LinkCarro:hover {
+  background: #fff;
+  color: #4800bd;
+}
+
+.LinkCarro:before,
+.LinkCarro:after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background: #4800bd;
+  transition: 400ms ease all;
+}
+
+.LinkCarro:before {
+  top: 0;
+  right: 0;
+}
+
+.LinkCarro:after {
+  left: 0;
+  bottom: 0;
+}
+
+.LinkCarro:hover:before,
+.LinkCarro:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}

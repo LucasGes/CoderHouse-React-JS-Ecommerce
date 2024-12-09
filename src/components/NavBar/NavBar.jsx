@@ -12,7 +12,7 @@ const NavBar = () => {
         <div className="container-fluid">
           <Link to="/">
             <img
-              className="img"
+              className="imgN"
               src={img}
               alt="Logo"        
               />

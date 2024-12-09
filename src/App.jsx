@@ -26,9 +26,7 @@ import { CartProvider } from "./context/CartContext";
 
 function App() {
 
-  const images = [ "https://via.placeholder.com/800x400?text=Imagen+1",
-    "https://via.placeholder.com/800x400?text=Imagen+2",
-    "https://via.placeholder.com/800x400?text=Imagen+3", ];
+  
 
   return (
     <CartProvider>
@@ -36,7 +34,7 @@ function App() {
         <div className="App">
           <NavBar/>
 
-          <Carousel images={images} />
+          <Carousel  />
 
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
